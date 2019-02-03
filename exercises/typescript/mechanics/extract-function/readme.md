@@ -12,6 +12,6 @@ For each folder, look at the `start.ts` file for a section of code to extract in
 //
 ```
 
-Extract the code block into a function, then compare your solution to the desired end state in `end.ts`. Note your extracted block will likely have a different name, that is okay these are not exercises in naming.
+Extract the code block into a function, then compare your solution with a possible end state in `end.ts`. Note your extracted block will likely have a different name, that is okay these are not exercises in naming.
 
 HINT: Most TypeScript editors have support for extracting highlighted code as a function. In vscode try using the "ctrl + ." hotkey after selecting your text.
