@@ -1,8 +1,8 @@
-export function main(): void {
+export function mainStart(): void {
   for (let i = 1; i <= 100; i++) {
-    // Extract this block into a function in the module scope
     let result = '';
 
+    // Extract this block into a function in the module scope
     if (i % 3 === 0) {
       result += 'Fizz';
     }
@@ -18,4 +18,33 @@ export function main(): void {
 
     console.log(result);
   }
+}
+
+export function main(): void {
+  for (let i = 1; i <= 100; i++) {
+    let result = '';
+
+    result = maybeAppendToResultFizzBuzzOrOutputInput(i, result);
+
+    console.log(result);
+  }
+}
+
+function maybeAppendToResultFizzBuzzOrOutputInput(
+  i: number,
+  result: string
+): string {
+  if (i % 3 === 0) {
+    result += 'Fizz';
+  }
+
+  if (i % 5 === 0) {
+    result += 'Buzz';
+  }
+
+  if (result === '') {
+    console.log(i.toString());
+  }
+
+  return result;
 }
