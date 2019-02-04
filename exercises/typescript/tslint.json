@@ -1,6 +1,7 @@
 {
   "extends": ["tslint-config-prettier","tslint-plugin-prettier"],
   "rules": {
-    "prettier": true
+    "prettier": true,
+    "no-shadowed-variable":  true
   }
 }
