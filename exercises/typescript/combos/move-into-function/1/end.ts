@@ -12,11 +12,13 @@ export function main(): void {
 
 function getFizzBuzzText(i: number) {
   let result = '';
+
   if (i % 3 === 0) {
     result += 'Fizz';
   }
   if (i % 5 === 0) {
     result += 'Buzz';
   }
+
   return result;
 }

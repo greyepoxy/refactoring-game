@@ -1,4 +1,4 @@
-All instruction content for exercises is licensed under [Creative Commons Universal (CCO-1.0)](https://creativecommons.org/publicdomain/zero/1.0/)
+All instruction and solution content for exercises is licensed under [Creative Commons Universal (CCO-1.0)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 All source code in the exercises is licensed under [MIT](https://opensource.org/licenses/MIT)
 
