@@ -1,15 +1,15 @@
 # Refactoring Game [Experimental]
-A series of refactoring exercises intended to be used as practice material for building fluency in refactoring.
+A series of refactoring exercises intended to be used as practice material for building fluency.
 
 # How do perform the exercises?
 
-TODO... going to be something like
-1. Fork the repo
-1. Create a branch
-1. For each exercise try to get from start state to end state using refactorings (need guidance on how best to view/perform the exercise)
-1. Check-in after each refactoring (need some kind of check-in notation?)
-1. Compare your check-in sequence to the solution branch
-1. Share your check-in sequence with the world (on Twitter, as an issue?)
+1. Fork the repo.
+1. Create a solution branch.
+1. Check-out the readme files accompanying the different exercises for specific instructions. It is recommended to start with [mechanics](exercises/typescript/mechanics/readme.md) and then move onto the [combo](exercises/typescript/combos/readme.md) exercises.
+1. Recommended to check-in after each refactoring (every time a sequence of actions leaves you in a build-able state that is behaviorally equivalent) so that you can re-visit your steps and share your steps.
+1. Recommended to use [vscode](https://code.visualstudio.com/) with the [tslint plugin](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) plugin, with the plugin enabled this project is setup to perform auto-formatting on save. Also there are some relevant rules configured to help with the refactorings.
+1. After each exercise compare your refactoring sequence to the solution files and see how you did.
+1. (Optional) Share your check-in sequence with the world (Also feel free to create an issue on this repository to leave some feedback).
 
 # Inspired By
 
@@ -22,4 +22,4 @@ Martin Fowler's [Refactoring book](https://martinfowler.com/books/refactoring.ht
 # Contributing
 Please send PRs and open issues if you see a bug!
 
-All exercises instruction content is licensed under CCO-1.0 but the code used in those examples is licensed under MIT. It is your responsibility to ensure you have the right to license your contribution under this license before sending a PR.
+All exercises instruction and solution content is licensed under CCO-1.0 but the code used in those examples is licensed under MIT. It is your responsibility to ensure you have the right to license your contribution under this license before sending a PR.
