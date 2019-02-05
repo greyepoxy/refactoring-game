@@ -1,24 +1,14 @@
 # First
 
-```ts
+The end file just moves the initial `result` value deceleration into the `appendFizzBuzz` function. So start by extracting the `result` decleration and assignment into a new function.
+
+```diff
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
-    // First Extract the following lines into function
-    let result = '';
+-    let result = '';
 
-    result = appendFizzBuzz(i, result);
-    //
-
-    // ...
-  }
-}
-```
-
-This leave you with
-```ts
-export function main(): void {
-  for (let i = 1; i <= 100; i++) {
-    let result = getFizzBuzzText(i);
+-    result = appendFizzBuzz(i, result);
++    const result = appendFizzBuzz2(i);
 
     if (result === '') {
       console.log(i.toString());
@@ -26,12 +16,6 @@ export function main(): void {
 
     console.log(result);
   }
-}
-
-function getFizzBuzzText(i: number) {
-  let result = '';
-  result = appendFizzBuzz(i, result);
-  return result;
 }
 
 function appendFizzBuzz(i: number, result: string) {
@@ -43,25 +27,89 @@ function appendFizzBuzz(i: number, result: string) {
   }
   return result;
 }
+
++function appendFizzBuzz2(i: number) {
++  let result = '';
++
++  result = appendFizzBuzz(i, result);
++
++  return result;
++}
+
 ```
 
 # Second
 
-Inline `appendFizzBuzz` this leave you with `getFizzBuzzText` as
+Inline the original `appendFizzBuzz` function.
 
-```ts
-function getFizzBuzzText(i: number) {
+```diff
+export function main(): void {
+  for (let i = 1; i <= 100; i++) {
+    const result = appendFizzBuzz2(i);
+
+    if (result === '') {
+      console.log(i.toString());
+    }
+
+    console.log(result);
+  }
+}
+
+-function appendFizzBuzz(i: number, result: string) {
+-  if (i % 3 === 0) {
+-    result += 'Fizz';
+-  }
+-  if (i % 5 === 0) {
+-    result += 'Buzz';
+-  }
+-  return result;
+-}
+
+function appendFizzBuzz2(i: number) {
   let result = '';
-  if (i % 3 === 0) {
-    result += 'Fizz';
-  }
-  if (i % 5 === 0) {
-    result += 'Buzz';
-  }
+
++  if (i % 3 === 0) {
++    result += 'Fizz';
++  }
++  if (i % 5 === 0) {
++    result += 'Buzz';
++  }
+
   return result;
 }
 ```
 
 # Third
 
-In main function convert `let result` to `const result` since it is not re-assigned
+Rename `appendFizzBuzz2` to `getFizzBuzzText`.
+
+```diff
+export function main(): void {
+  for (let i = 1; i <= 100; i++) {
+-    const result = appendFizzBuzz2(i);
++    const result = getFizzBuzzText(i);
+
+    if (result === '') {
+      console.log(i.toString());
+    }
+
+    console.log(result);
+  }
+}
+
+-function appendFizzBuzz2(i: number) {
++function getFizzBuzzText(i: number) {
+  let result = '';
+
+  if (i % 3 === 0) {
+    result += 'Fizz';
+  }
+  if (i % 5 === 0) {
+    result += 'Buzz';
+  }
+
+  return result;
+}
+```
+
+# Done
