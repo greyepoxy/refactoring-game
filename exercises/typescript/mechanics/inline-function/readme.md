@@ -11,4 +11,6 @@ function ( ... ) {
 }
 ```
 
-Inline the function into its call sites, then compare your solution with a possible end state in `end.ts`.
+Inline the function into its call sites, then compare your approach with the solution steps in `solution.md`.
+
+NOTE: The solutions for these exercises depend on tslint's "no-shadowed-variable" rule. If using vscode with the [tslint plugin](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) installed, these rule failures should show up as errors in the editor.
