@@ -1,3 +1,5 @@
+const result: string = 'garbage';
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
     // Extract this block into a function in the module scope
