@@ -1,3 +1,5 @@
+const i: number = 99;
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
     let result = '';
