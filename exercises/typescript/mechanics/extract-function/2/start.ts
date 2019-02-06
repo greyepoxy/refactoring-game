@@ -1,7 +1,7 @@
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
     // Extract this block into a function in the module scope
-    const getText = () => {
+    const getText = (i: number) => {
       let result = '';
 
       if (i % 3 === 0) {
@@ -13,7 +13,7 @@ export function main(): void {
       }
       return result;
     };
-    const result = getText();
+    const result = getText(i);
     //
 
     if (result === '') {
