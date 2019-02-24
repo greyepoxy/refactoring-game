@@ -13,10 +13,11 @@ export function main(): void {
     }
 
     // Extract this block into a function in the module scope
+    // ------------------
     if (result === 'FizzBuzz') {
       numberOfFizzBuzzes++;
     }
-    //
+    // ------------------
 
     if (result === '') {
       console.log(i.toString());

@@ -4,14 +4,15 @@
 
 Extract function is a core mechanic and is a building block for more complicated refactorings.
 
-For each folder, look at the `start.ts` file for a section of code to extract into a function. The section will be marked with comments like this:
+For each numbered exercise folder, look at the `start.ts` file for a section of code to extract into a function. The section will be marked with comments like this:
 
 ```ts
-// Extract this block 
+// Extract this block
+// ------------------
 
 <the code to extract>
 
-//
+// ------------------
 ```
 
 Extract the code block into a function, then compare how you did it to the `solution.md` file. Note your extracted block will likely have a different name, that is okay these are not exercises in naming.

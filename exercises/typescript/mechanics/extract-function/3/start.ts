@@ -3,6 +3,7 @@ export function main(): void {
     let result = '';
 
     // Extract this block into a function in the module scope
+    // ------------------
     if (i % 3 === 0) {
       result += 'Fizz';
     }
@@ -14,7 +15,7 @@ export function main(): void {
     if (result === '') {
       console.log(i.toString());
     }
-    //
+    // ------------------
 
     console.log(result);
   }
