@@ -1,140 +1,222 @@
 # First
 
-Try and convert the function block into an executed inlined lambda.
+Ensure no disabling of the tslint rule `no-shadowed-variable` is occurring in the file.
+
+In this case there is a disabled `no-shadowed-variable` error so remove the comment and resolve the error with a rename.
 
 ```diff
+const result: string = 'garbage';
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
-+    (() => {
-      let result = '';
+-    let result = '';
++    let innerResult = '';
 
-      if (i % 3 === 0) {
-        result += 'Fizz';
-      }
+    if (i % 3 === 0) {
+-      result += 'Fizz';
++      innerResult += 'Fizz';
+    }
 
-      if (i % 5 === 0) {
-        result += 'Buzz';
-      }
-+    })();
+    if (i % 5 === 0) {
+-      result += 'Buzz';
++      innerResult += 'Buzz';
+    }
 
-    if (result === '') { // Cannot find name 'result'. compiler error
+-    if (result === '') {
++    if (innerResult === '') {
       console.log(i.toString());
     }
 
-    console.log(result); // Cannot find name 'result'. compiler error
+-    console.log(result);
++    console.log(innerResult);
+  }
+}
+```
+
+# Second
+
+Try and convert the function block into an executed inlined lambda.
+
+```diff
+const result: string = 'garbage';
+
+export function main(): void {
+  for (let i = 1; i <= 100; i++) {
++    (() => {
+      let innerResult = '';
+
+      if (i % 3 === 0) {
+        innerResult += 'Fizz';
+      }
+
+      if (i % 5 === 0) {
+        innerResult += 'Buzz';
+      }
++    })();
+
+    if (innerResult === '') { // Cannot find name 'result'. compiler erro
+      console.log(i.toString());
+    }
+
+    console.log(innerResult); // Cannot find name 'result'. compiler erro
   }
 }
 ```
 
 See two compiler errors for `result` variable defined in the lambda but used later.
 
-# Second
+# Third
 
-Return `result` variable from lambda and assign to `result` variable defined external of the lambda scope
+Return `innerResult` variable from lambda and assign to `innerResult` variable defined external of the lambda scope
 
 ```diff
+const result: string = 'garbage';
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
 -    (() => {
-+    let result = (() => {
-      let result = '';
++    let innerResult = (() => {
+      let innerResult = ''; // Shadowed name: 'innerResult', tslint error
 
       if (i % 3 === 0) {
-        result += 'Fizz';
+        innerResult += 'Fizz';
       }
 
       if (i % 5 === 0) {
-        result += 'Buzz';
+        innerResult += 'Buzz';
       }
 
-+      return result;
++      return innerResult;
     })();
 
-    if (result === '') {
+    if (innerResult === '') {
       console.log(i.toString());
     }
 
-    console.log(result);
+    console.log(innerResult);
   }
 }
 ```
 
-# Third
+See a tslint `no-shadowed-variable` error.
 
-Convert Lambda into module function. See compiler errors.
+# Fourth
+
+Not strictly required in this case but is good practice, resolve the `no-shadowed-variable` error with a rename.
 
 ```diff
+const result: string = 'garbage';
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
-+    let result = getFizzBuzzTextIfDivisibleByThreeOrFive();
--    let result = (() => {
--      let result = '';
--
--      if (i % 3 === 0) {
--        result += 'Fizz';
--      }
--
--      if (i % 5 === 0) {
--        result += 'Buzz';
--      }
--
--      return result;
--    })();
+    let innerResult = (() => {
+-      let innerResult = '';      
++      let innerResult2 = '';
 
-    if (result === '') {
+      if (i % 3 === 0) {
+-        innerResult += 'Fizz';
++        innerResult2 += 'Fizz';
+      }
+
+      if (i % 5 === 0) {
+-        innerResult += 'Buzz';
++        innerResult2 += 'Buzz';
+      }
+
+-      return innerResult;
++      return innerResult2;
+    })();
+
+    if (innerResult === '') {
       console.log(i.toString());
     }
 
-    console.log(result);
+    console.log(innerResult);
+  }
+}
+
+```
+
+# Fifth
+
+Move Lambda body into module function. See compiler errors.
+
+```diff
+const result: string = 'garbage';
+
+export function main(): void {
+  for (let i = 1; i <= 100; i++) {
++    let innerResult = getFizzBuzzTextIfDivisibleByThreeOrFive();
+-    let innerResult = (() => {     
+-      let innerResult2 = '';
+-
+-      if (i % 3 === 0) {
+-        innerResult2 += 'Fizz';
+-      }
+-
+-      if (i % 5 === 0) {
+-        innerResult2 += 'Buzz';
+-      }
+-
+-      return innerResult2;
+-    })();
+
+    if (innerResult === '') {
+      console.log(i.toString());
+    }
+
+    console.log(innerResult);
   }
 }
 
 +function getFizzBuzzTextIfDivisibleByThreeOrFive(): string {
-+  let result = '';
++  let innerResult2 = '';
 +
 +  if (i % 3 === 0) { // Cannot find name 'i'. compiler error
-+    result += 'Fizz';
++    innerResult2 += 'Fizz';
 +  }
 +
 +  if (i % 5 === 0) { // Cannot find name 'i'. compiler error
-+    result += 'Buzz';
++    innerResult2 += 'Buzz';
 +  }
 +
-+  return result;
++  return innerResult2;
 +}
 ```
 
-# Fourth
+# Sixth
 
 Resolve compiler errors by making `i` an argument into the new function.
 
 ```diff
+const result: string = 'garbage';
+
 export function main(): void {
   for (let i = 1; i <= 100; i++) {
--    let result = getFizzBuzzTextIfDivisibleByThreeOrFive();
-+    let result = getFizzBuzzTextIfDivisibleByThreeOrFive(i);
+-    let innerResult = getFizzBuzzTextIfDivisibleByThreeOrFive();
++    let innerResult = getFizzBuzzTextIfDivisibleByThreeOrFive(i);
 
-    if (result === '') {
+    if (innerResult === '') {
       console.log(i.toString());
     }
 
-    console.log(result);
+    console.log(innerResult);
   }
 }
 
-- function getFizzBuzzTextIfDivisibleByThreeOrFive(): string {
+-function getFizzBuzzTextIfDivisibleByThreeOrFive(): string {
 +function getFizzBuzzTextIfDivisibleByThreeOrFive(i: number): string {
-  let result = '';
+  let innerResult2 = '';
 
   if (i % 3 === 0) {
-    result += 'Fizz';
+    innerResult2 += 'Fizz';
   }
 
   if (i % 5 === 0) {
-    result += 'Buzz';
+    innerResult2 += 'Buzz';
   }
 
-  return result;
+  return innerResult2;
 }
 ```
 
