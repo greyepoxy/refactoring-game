@@ -1,5 +1,7 @@
 # Inline Function Exercises
 
+> Make sure to check out the [TypeScript setup instructions](../../readme.md)
+
 Inline function is a core mechanic and is a building block for more complicated refactorings.
 
 For each folder, look at the `start.ts` file for a comment specifying which function to inline:
