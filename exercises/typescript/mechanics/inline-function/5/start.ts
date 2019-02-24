@@ -11,7 +11,9 @@ export function main(): void {
 }
 
 // Inline this function
+// ------------------
 function isFizz(input: number): boolean {
   const inputModuloThree = input % 3;
   return inputModuloThree === 0;
 }
+// ------------------

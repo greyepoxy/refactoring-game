@@ -9,6 +9,7 @@ export function main(): void {
 }
 
 // inline this function
+// ------------------
 function maybeAppendToResultFizzBuzzOrOutputInput(i: number, result: string) {
   if (i % 3 === 0) {
     result += 'Fizz';
@@ -21,3 +22,4 @@ function maybeAppendToResultFizzBuzzOrOutputInput(i: number, result: string) {
   }
   return result;
 }
+// ------------------

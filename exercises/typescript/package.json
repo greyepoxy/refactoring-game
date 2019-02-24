@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "npm run compile && npm run lint",
+    "compile": "tsc -p .",
     "lint": "tslint -p .",
     "lint-fix": "npm run lint -- --fix"
   },
