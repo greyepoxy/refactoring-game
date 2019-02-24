@@ -20,6 +20,7 @@ export function main(): void {
 }
 
 // Inline this function
+// ------------------
 function updateFizzBuzzCount(
   index: number,
   fizzBuzzText: string,
@@ -39,3 +40,4 @@ function updateFizzBuzzCount(
 
   return { fizzBuzzText, fizzBuzzCount };
 }
+// ------------------

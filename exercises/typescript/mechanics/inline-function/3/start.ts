@@ -19,9 +19,11 @@ export function main(): void {
 }
 
 // Inline this function
+// ------------------
 function isFizz(input: number): boolean {
   return input % 3 === 0;
 }
+// ------------------
 
 function isBar(input: number): boolean {
   return input % 3 === 0;
