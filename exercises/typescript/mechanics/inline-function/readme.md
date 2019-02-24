@@ -17,4 +17,4 @@ function ( ... ) {
 
 Inline the function into its call sites, then compare your approach with the solution steps in `solution.md`.
 
-HINT: Tslint's "no-shadowed-variable" rule is very helpful for doing this exercises in a safe manner. If using vscode with the [tslint plugin](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) installed, these rule failures should show up as errors in the editor.
+> HINT: Tslint's "no-shadowed-variable" rule is very helpful for doing these exercises in a safe manner. If using vscode with the [tslint plugin](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) installed, these rule failures should show up as errors in the editor.
